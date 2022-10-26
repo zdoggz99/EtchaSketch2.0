@@ -1,0 +1,30 @@
+.drawArea {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  user-select: none;
+
+  .drawOptionsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 50vh;
+    width: 20%;
+  }
+
+  .gridContainer {
+    margin: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    height: calc(50rem + 1px);
+    width: calc(50rem + 1px);
+    outline: 2px solid black;
+
+    .gridSpace {
+      outline: 1px solid black;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
