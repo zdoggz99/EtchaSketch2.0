@@ -4,9 +4,13 @@ import "../styles/drawArea/drawArea.scss";
 import DrawOptions from "./drawOptions";
 
 let grid = new Grid(16);
-//let drawOptions = new DrawOptions(grid);
-function initWindow() {
-  grid.create();
+
+function addAllEventListeners() {
+  let showGridButton = document.querySelector("showGrid");
+  let clearButton = document.querySelector(".clear");
+  let eraserButton = document.querySelector("eraser");
+  let pencilButton = document.querySelector("pencil");
+  clearButton.addEventListener("mousedown", DrawOptions.clear);
 }
 
-initWindow();
+addAllEventListeners()

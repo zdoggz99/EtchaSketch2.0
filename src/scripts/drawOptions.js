@@ -1,24 +1,24 @@
 import Grid from "./grid";
 
 export default class DrawOptions {
-  constructor(grid) {
-    this.grid = grid;
-  }
-  getColor() {
+  //DrawOptions should be static, meaning it doesn't get an instance, so the constructor is never used
+  
+  //To make something static, you use the keyword static
+  static getColor() {
     let color = document.getElementById("colorPicker");
     return color.value;
   }
-  clear() {
-    grid.getGridArray();
+  static clear() {
+    console.log('clear')
+    let gridArray = Grid.getGridArray();
+    gridArray.forEach(element => {
+      element.style.backgroundColor = 'white'
+    });
   }
-  eraser() {}
-  pencil() {}
-  showGrid() {}
+  static eraser() {}
+  static pencil() {}
+  static showGrid() {}
 
-  addEventListeners() {
-    showGridButton = document.querySelector("showGrid");
-    clearButton = document.querySelector("clear");
-    eraserButton = document.querySelector("eraser");
-    clearButton = document.querySelector("pencil");
-  }
+  
 }
+

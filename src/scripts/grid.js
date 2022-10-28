@@ -3,9 +3,9 @@ let isClicked = false;
 
 export default class Grid {
   constructor(size) {
-    let drawOptions = new DrawOptions(this);
     this.size = size;
     this.gridArray = [];
+    this.create();
   }
   create() {
     let gridContainer = document.createElement("div");
@@ -29,12 +29,12 @@ export default class Grid {
     if (e.type == "mousedown") isClicked = true;
     if (e.type == "mouseup") isClicked = false;
     if (isClicked) {
-      e.target.style.backgroundColor = drawOptions.getColor();
+      e.target.style.backgroundColor = DrawOptions.getColor();
     }
   }
 
   //Doing it this way seemed to fix it. I think making this way makes it a public function and the way you currently have "changeColor" makes it private?
-  getGridArray = function () {
+  static getGridArray = function () {
     return this.gridArray;
   };
 }
