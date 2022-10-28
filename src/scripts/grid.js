@@ -1,11 +1,11 @@
 import DrawOptions from "./drawOptions";
-let drawOptions = new DrawOptions();
 let isClicked = false;
 
-let gridArray = [];
 export default class Grid {
   constructor(size) {
+    let drawOptions = new DrawOptions(this);
     this.size = size;
+    this.gridArray = [];
   }
   create() {
     let gridContainer = document.createElement("div");
@@ -16,7 +16,7 @@ export default class Grid {
       const gridSpace = document.createElement("div");
       gridContainer.appendChild(gridSpace);
       gridSpace.classList.add("gridSpace");
-      gridArray.push(gridSpace);
+      this.gridArray.push(gridSpace);
       gridSpace.style.height = 100 / this.size + "%";
       gridSpace.style.width = 100 / this.size + "%";
       gridSpace.addEventListener("mouseover", this.changeColor);
@@ -28,6 +28,13 @@ export default class Grid {
   changeColor(e) {
     if (e.type == "mousedown") isClicked = true;
     if (e.type == "mouseup") isClicked = false;
-    if (isClicked) e.target.style.backgroundColor = drawOptions.getColor();
+    if (isClicked) {
+      e.target.style.backgroundColor = drawOptions.getColor();
+    }
   }
+
+  //Doing it this way seemed to fix it. I think making this way makes it a public function and the way you currently have "changeColor" makes it private?
+  getGridArray = function () {
+    return this.gridArray;
+  };
 }

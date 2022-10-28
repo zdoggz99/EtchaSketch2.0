@@ -21,7 +21,9 @@
     outline: 2px solid black;
 
     .gridSpace {
-      outline: 1px solid black;
+      box-shadow: 0 -1px 0 #000;
+      box-shadow: 0 -1px 1px #000;
+      box-shadow: 0 -1px 1px #000;
       &:hover {
         cursor: pointer;
       }
