@@ -16,6 +16,7 @@ export default class Grid {
       const gridSpace = document.createElement("div");
       gridContainer.appendChild(gridSpace);
       gridSpace.classList.add("gridSpace");
+      gridSpace.id = "gridSpace";
       this.gridArray.push(gridSpace);
       gridSpace.style.height = 100 / this.size + "%";
       gridSpace.style.width = 100 / this.size + "%";
@@ -34,7 +35,11 @@ export default class Grid {
   }
 
   //Doing it this way seemed to fix it. I think making this way makes it a public function and the way you currently have "changeColor" makes it private?
-  static getGridArray = function () {
+  getGridArray = function () {
     return this.gridArray;
+  };
+
+  getGridSpace = function () {
+    return gridSpace;
   };
 }
